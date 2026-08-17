@@ -8,70 +8,121 @@
 </head>
 <body>
   <div id="startScreen" class="screen active">
-    <div class="container">
-      <h1 class="title">PARASITAS DE POLUIÇÃO</h1>
-      <p class="subtitle">Um jogo sobre escolhas e consequências</p>
-      
-      <div class="info-section">
-        <h2>A História</h2>
-        <p>Você é um empresário em busca de riqueza. Construa fábricas, aumente seus lucros, mas cuidado... a poluição tem preço.
-        Quando o dinheiro acabar, a natureza destruída ganhará vida. Os Parasitas de Poluição acordarão, e você precisará enfrentá-los.
-        </p>
+    <!-- Fundo animado com partículas -->
+    <div class="background">
+      <canvas id="bgCanvas"></canvas>
+    </div>
+    
+    <!-- Conteúdo principal -->
+    <div class="content">
+      <!-- Título com efeito glitch -->
+      <div class="title-container">
+        <h1 class="title glitch" data-text="PARASITAS">PARASITAS</h1>
+        <h1 class="title glitch" data-text="DE POLUIÇÃO">DE POLUIÇÃO</h1>
       </div>
 
-      <div class="features">
-        <div class="feature">
-          <span class="icon">💰</span>
-          <p><strong>Fase 1:</strong> O Empresário - Construa seu império</p>
+      <!-- Descrição com efeito -->
+      <p class="description">
+        Um jogo sobre <span class="highlight">escolhas</span> e <span class="highlight">consequências</span>
+      </p>
+
+      <!-- Cards de features -->
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">💰</div>
+          <h3>FASE 1</h3>
+          <p>O Empresário</p>
+          <small>Construa seu império de poluição</small>
         </div>
-        <div class="feature">
-          <span class="icon">⚔️</span>
-          <p><strong>Fase 2:</strong> O Guardião - Recupere o mundo destruído</p>
+        <div class="feature-card">
+          <div class="feature-icon">⚔️</div>
+          <h3>FASE 2</h3>
+          <p>O Guardião</p>
+          <small>Recupere o mundo destruído</small>
         </div>
-        <div class="feature">
-          <span class="icon">🌍</span>
-          <p><strong>Tema:</strong> Sustentabilidade e consequências ambientais</p>
+        <div class="feature-card">
+          <div class="feature-icon">🌍</div>
+          <h3>TEMA</h3>
+          <p>Sustentabilidade</p>
+          <small>Consequências ambientais</small>
         </div>
       </div>
 
-      <button id="playButton" class="btn-play">INICIAR JOGO</button>
-      <button id="rulesButton" class="btn-secondary">VER INSTRUÇÕES</button>
+      <!-- Buttons -->
+      <div class="button-group">
+        <button id="playButton" class="btn btn-primary">
+          <span class="btn-text">INICIAR JOGO</span>
+          <span class="btn-effect"></span>
+        </button>
+        <button id="rulesButton" class="btn btn-secondary">
+          INSTRUÇÕES
+        </button>
+      </div>
+
+      <!-- Informação adicional -->
+      <div class="bottom-info">
+        <p>🎮 Use teclado ou mouse para jogar</p>
+      </div>
     </div>
   </div>
 
+  <!-- Tela de Instruções -->
   <div id="rulesScreen" class="screen">
-    <div class="container">
+    <div class="background">
+      <canvas id="bgCanvas2"></canvas>
+    </div>
+
+    <div class="rules-content">
       <button id="backButton" class="btn-back">← VOLTAR</button>
       
-      <h2>Como Jogar</h2>
+      <h2>COMO JOGAR</h2>
       
-      <div class="rules-section">
-        <h3>Fase 1: O Empresário</h3>
-        <ul>
-          <li>Construa estruturas para gerar lucro</li>
-          <li>Cada construção aumenta a poluição</li>
-          <li>Objetivo: Alcançar R$ 5.000</li>
-          <li>Quanto mais rápido atingir o objetivo, melhor!</li>
-        </ul>
-      </div>
+      <div class="rules-grid">
+        <div class="rule-section">
+          <h3>⭐ FASE 1: O EMPRESÁRIO</h3>
+          <div class="rule-item">
+            <span class="rule-number">1</span>
+            <p>Construa estruturas para gerar lucro</p>
+          </div>
+          <div class="rule-item">
+            <span class="rule-number">2</span>
+            <p>Cada construção aumenta a poluição</p>
+          </div>
+          <div class="rule-item">
+            <span class="rule-number">3</span>
+            <p>Objetivo: Alcançar R$ 5.000</p>
+          </div>
+        </div>
 
-      <div class="rules-section">
-        <h3>Fase 2: O Guardião</h3>
-        <ul>
-          <li><strong>A / D ou ← / →</strong> — Mover para esquerda e direita</li>
-          <li><strong>W / ↑ / Espaço</strong> — Pular</li>
-          <li><strong>J</strong> — Atacar os parasitas</li>
-          <li><strong>E</strong> — Recuperar áreas contaminadas</li>
-        </ul>
-      </div>
+        <div class="rule-section">
+          <h3>⚡ FASE 2: O GUARDIÃO</h3>
+          <div class="controls">
+            <div class="control-line">
+              <kbd>A</kbd> / <kbd>D</kbd> - Mover
+            </div>
+            <div class="control-line">
+              <kbd>W</kbd> / <kbd>ESPAÇO</kbd> - Pular
+            </div>
+            <div class="control-line">
+              <kbd>J</kbd> - Atacar
+            </div>
+            <div class="control-line">
+              <kbd>E</kbd> - Recuperar Natureza
+            </div>
+          </div>
+        </div>
 
-      <div class="rules-section">
-        <h3>Objetivo</h3>
-        <p>Derrote todos os parasitas e recupere as 3 áreas contaminadas para salvar o mundo!</p>
+        <div class="rule-section">
+          <h3>🎯 OBJETIVO FINAL</h3>
+          <p class="objective-text">
+            Derrote todos os parasitas e recupere as 3 áreas contaminadas para salvar o mundo!
+          </p>
+        </div>
       </div>
     </div>
   </div>
 
+  <!-- Container do Jogo -->
   <div id="gameContainer" class="screen">
     <canvas id="gameCanvas"></canvas>
   </div>
